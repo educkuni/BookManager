@@ -30,6 +30,10 @@ public class BookManager {
                 case 1 -> {
                     System.out.print("Book name: ");
                     String name = scanner.nextLine();
+                    while(name.isBlank()){
+                        System.out.print("Book name: ");
+                        name = scanner.nextLine();
+                    }
                     boolean nameFound = false;
 
                     System.out.print("Book author: ");
@@ -45,7 +49,7 @@ public class BookManager {
                        }
 
                     }
-                    if(!nameFound){
+                    if(!nameFound && !name.isBlank()){
                         books.add(new Book(name, author, releaseYear, false));
                     } else {
                         System.out.println("A book with this name already exists.");
